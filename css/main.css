@@ -17,7 +17,6 @@ body {
 
 header {
     width: 70%;
-    border: 1px solid red;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -119,7 +118,6 @@ ul li:hover .submenu {
 .slide-wrapper{
     width: 70%;
     height: 70vh;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -143,16 +141,31 @@ ul li:hover .submenu {
     background-repeat: no-repeat;
 }
 
+.slider.active{
+    width: 50%;
+    border-radius: 50%;
+    animation: move-down 1.5s ease-in infinite alternate-reverse;
+}
+
+@keyframes move-down{
+    from{
+        transform: translateY(-15px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
 .pic-1{
-    background-image: url('../imagenes/img1.jpg');
+    background-image: url('../imagenes/img1.png');
 }
 
 .pic-2{
-    background-image: url('../imagenes/img2.jpg');
+    background-image: url('../imagenes/img2.png');
 }
 
 .pic-3{
-    background-image: url('../imagenes/img3.jpg');
+    background-image: url('../imagenes/img3.png');
 }
 
 .pic-4{

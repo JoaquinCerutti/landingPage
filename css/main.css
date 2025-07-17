@@ -15,46 +15,64 @@ body {
     height: 100vh;
 }
 
+/* HEADER: contenedor flex */
 header {
     width: 70%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem 0;
 }
 
+/* LOGO: limita altura y mantiene proporción */
+header a img {
+    max-height: 100px;
+    width: auto;
+    display: block;
+}
+
+/* ESPACIO ENTRE LOGO Y MENÚ */
+header nav {
+    margin-left: 2rem;
+}
+
+/* MENÚ: fila con separación uniforme */
 header ul {
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
 }
 
 header ul li {
-    margin: 0 .4rem;
-
+    margin: 0;
 }
 
+/* LINKS: estilo base */
 header ul li a {
     text-decoration: none;
     letter-spacing: 1px;
     font-size: 20px;
     padding: 15px 20px;
     border-radius: 20px;
-    transition: all ease .3s;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
 }
 
 header ul li a:hover {
     color: #fff;
     background-color: #25509E;
-    
 }
 
+/* BOTÓN Sign Up: no se rompe en varias líneas */
 header ul li a.btn {
-    color: #fff;
     background-color: #25509e;
-    padding: 15px 40px ;
+    color: #fff;
+    padding: 15px 40px;
+    white-space: nowrap;
 }
 
 header ul li a.btn:hover {
@@ -62,9 +80,7 @@ header ul li a.btn:hover {
     background-color: #c1d7ff;
 }
 
-
-/* Estilos de submenú */
-
+/* Submenú */
 .submenu {
     max-width: 200px;
     position: absolute;
@@ -74,7 +90,7 @@ header ul li a.btn:hover {
     padding-left: 0;
     margin-top: 15px;
     opacity: 0;
-    transition: all ease .5s;
+    transition: opacity 0.5s, margin 0.5s;
     z-index: 1;
     display: block;
 }
@@ -86,7 +102,6 @@ ul li:hover .submenu {
 
 .submenu li {
     margin: 0;
-    /*border: 1px solid red;*/
 }
 
 .submenu li a {
@@ -105,17 +120,15 @@ ul li:hover .submenu {
 .submenu li:last-child a {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-
 }
 
 /* Sliders */
-
 #home {
     height: 1250px;
     background-color: #EBEBEB;
 }
 
-.slide-wrapper{
+.slide-wrapper {
     width: 70%;
     height: 70vh;
     display: flex;
@@ -124,10 +137,9 @@ ul li:hover .submenu {
     margin: 0 auto;
     position: relative;
     top: 50px;
-
 }
 
-.slider{
+.slider {
     margin-right: 10px;
     height: 100%;
     width: 10%;
@@ -141,37 +153,71 @@ ul li:hover .submenu {
     background-repeat: no-repeat;
 }
 
-.slider.active{
+.slider.active {
     width: 50%;
     border-radius: 50%;
     animation: move-down 1.5s ease-in infinite alternate-reverse;
 }
 
-@keyframes move-down{
-    from{
-        transform: translateY(-15px);
+.pic-1 { background-image: url('../imagenes/img1.png'); }
+.pic-2 { background-image: url('../imagenes/img2.png'); }
+.pic-3 { background-image: url('../imagenes/img3.png'); }
+.pic-4 { background-image: url('../imagenes/img4.png'); }
+.pic-5 { background-image: url('../imagenes/img5.png'); }
+
+/* ICONO HAMBURGUESA */
+header .fa-bars {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .slider.active { border-radius: 20px; }
+
+    header .fa-bars {
+        display: block;
+        z-index: 1;
     }
-    to{
-        transform: translateY(0);
+
+    /* Menú sliding */
+    nav {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 70%;
+        height: 80%;
+        box-shadow: 0 1rem 2rem #333;
+        background-color: white;
+        font-weight: bold;
+        transition: top 0.4s ease-in;
+        z-index: 1;
     }
-}
+    /* Clase que activa el slide-in */
+    nav.nav-toggle {
+        top: 0;
+    }
 
-.pic-1{
-    background-image: url('../imagenes/img1.png');
-}
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 4rem 0;
+        padding: 0;
+        gap: 1.5rem;
+    }
 
-.pic-2{
-    background-image: url('../imagenes/img2.png');
-}
+    nav ul li a {
+        font-size: 1rem;
+    }
 
-.pic-3{
-    background-image: url('../imagenes/img3.png');
-}
-
-.pic-4{
-    background-image: url('../imagenes/img4.png');
-}
-
-.pic-5{
-    background-image: url('../imagenes/img5.png');
+    .submenu {
+        position: absolute;
+        left: 0;
+        width: 150px;
+    }
 }

@@ -1,17 +1,18 @@
-const ACTIVECLASS = 'active';
+// Yasmin Vatankhah
 
+const ACTIVECLASS = 'active';
 const IMAGES = document.querySelectorAll('.slider');
 
 IMAGES[0].classList.add(ACTIVECLASS);
 
-function removeActiveClass(){
+function removeActiveClass() {
     const elm = document.querySelector(`.${ACTIVECLASS}`);
     if (elm) {
         elm.classList.remove(ACTIVECLASS);
     }
 }
 
-function addClass($event){
+function addClass($event) {
     $event.stopPropagation();
     removeActiveClass();
     const target = $event.currentTarget;
@@ -19,13 +20,13 @@ function addClass($event){
 }
 
 IMAGES.forEach(image => {
-    image.addEventListener('click', addClass);
+    image.addEventListener('click' , addClass);
 });
 
 // menu bar
 
 $(document).ready(function () {
-    $('.fa-bars').click(function() {
+    $('.fa-bars').click(function () {
         $(this).toggleClass('fa-times');
         $('nav').toggleClass('nav-toggle');
     });
